@@ -15,7 +15,7 @@ on:
       #- 'LICENSE'
       #- 'README*'
      # - 'CODE_OF_CONDUCT*'
-    branches: [master]
+   # branches: [master]
 
 jobs:
   build-verify:
