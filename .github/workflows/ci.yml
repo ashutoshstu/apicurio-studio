@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2.1.0
       - uses: uraimo/run-on-arch-action@v2.0.5
         name: Run commands
-        id: runcmd
+        id: abhi
         with:
           arch: armv7
           distro: ubuntu18.04
