@@ -14,7 +14,7 @@ on:
      # - '.gitignore'
       #- 'LICENSE'
       #- 'README*'
-      - 'CODE_OF_CONDUCT*'
+     # - 'CODE_OF_CONDUCT*'
     branches: [master]
 
 jobs:
