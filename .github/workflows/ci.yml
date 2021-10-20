@@ -1,29 +1,20 @@
 on: [push, pull_request]
 
 jobs:
-  armv7_job:
-    # The host should always be Linux
-    runs-on: ubuntu-18.04
-    name: Build on ubuntu-18.04 armv7
+  test-aarch64:
+    name: aarch64_test
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.1.0
-      - uses: uraimo/run-on-arch-action@v2.0.5
-        name: Run commands
-        id: runcmd
-        with:
-          arch: aarch64
-          distro: ubuntu18.04
-
-          # Not required, but speeds up builds by storing container images in
-          # a GitHub package registry.
-          githubToken: ${{ github.token }}
-
-          # Set an output parameter `uname` for use in subsequent steps
-          run: |
-            uname -a
-            echo ::set-output name=uname::$(uname -a)
-
-      - name: Get the output
-        # Echo the `uname` output parameter from the `runcmd` step
-        run: |
-          echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Arm64 test case
+      run: |
+           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+           arm64v8/ubuntu:latest \
+           bash -exc 'apt-get update && apt-get -y install python3 git python3-pip && \
+           uname -m && \
+           pip3 install -U wheel setuptools pip && \
+           pip3 install tox codecov && \
+           tox -e py38'
