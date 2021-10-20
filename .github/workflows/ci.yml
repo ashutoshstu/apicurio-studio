@@ -13,6 +13,6 @@ jobs:
       run: |
            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
            arm64v8/ubuntu:latest \
-           bash -exc 'apt-get update && apt-get -y install python3 git python3-pip && \
+           bash -exc 'apt-get update && apt-get -y install maven git  && \
            uname -m && \
            mvn clean install'
