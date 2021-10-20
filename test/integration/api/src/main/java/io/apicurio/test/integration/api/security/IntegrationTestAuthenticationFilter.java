@@ -120,3 +120,4 @@ public class IntegrationTestAuthenticationFilter implements Filter {
     public void destroy() {
     }
 }
+
