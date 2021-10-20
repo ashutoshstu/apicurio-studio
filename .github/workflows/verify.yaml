@@ -35,4 +35,3 @@ jobs:
       #- name: Run Integration Tests
       #  run: mvn install -pl :apicurio-studio-test-integration-arquillian -Pintegration
       
-      
