@@ -2,11 +2,11 @@ name: Verify Build Workflow
 on:
   push:
     paths-ignore:
-      - '.github/**'
-      - '.gitignore'
-      - 'LICENSE'
+      #- '.github/**'
+      #- '.gitignore'
+      #- 'LICENSE'
       - 'README*'
-      - 'CODE_OF_CONDUCT*'
+      #- 'CODE_OF_CONDUCT*'
     branches: [master]
   pull_request:
     paths-ignore:
