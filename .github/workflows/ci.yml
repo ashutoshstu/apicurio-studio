@@ -19,8 +19,9 @@ jobs:
       run: |
            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
            arm64v8/ubuntu:latest \
-           bash -exc 'apt-get update && \
-           uname -m'
+           bash -exc 'apt-get update && apt-get install -y maven && \
+           uname -m && \
+           mvn install'
     - uses: actions/checkout@v2
     - name: Prepare
       id: prepare
