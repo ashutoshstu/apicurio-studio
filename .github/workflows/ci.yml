@@ -41,7 +41,8 @@ jobs:
           push: true
           tags: |
             abhishek138/team:${{ steps.prepare.outputs.tag_name }}
-            abhishek138/team:latest       
+            abhishek138/team:latest
+            
             
             
             
