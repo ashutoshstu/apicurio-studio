@@ -29,6 +29,6 @@ jobs:
           echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
       - uses: actions/checkout@v2
       - name: dependency installation
-        run: apt-get install -y maven 
+        run: sudo apt-get install -y maven 
       - name: Arm64 build
         run: mvn install
