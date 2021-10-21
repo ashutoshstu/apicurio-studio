@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1    
     - name: Arm64 test case
       run: |
            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
@@ -24,10 +27,7 @@ jobs:
       id: prepare
       run: |
             TAG=${GITHUB_REF##*/}
-            echo ::set-output name=tag_name::${TAG}
-    - name: Set up QEMU
-      id: qemu
-      uses: docker/setup-qemu-action@v1        
+            echo ::set-output name=tag_name::${TAG}    
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     #- name: Login do docker.io
