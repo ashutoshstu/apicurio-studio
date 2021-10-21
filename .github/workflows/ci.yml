@@ -22,7 +22,6 @@ jobs:
            bash -exc 'apt-get update && apt-get -y install maven && \
            uname -m && \
            mvn clean install'
-    - uses: actions/checkout@v2
     - name: Prepare
       id: prepare
       run: |
