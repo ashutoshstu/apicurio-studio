@@ -23,6 +23,8 @@ jobs:
            uname -m && \
            mvn clean install && \
            ls platforms/thorntail/api/target'
+    - name: copy jar
+      run: cp -r platforms/thorntail/api/target target/
     - name: Prepare
       id: prepare
       run: |
