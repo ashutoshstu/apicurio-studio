@@ -21,12 +21,15 @@ jobs:
            arm64v8/ubuntu:latest \
            bash -exc 'apt-get update && apt-get -y install maven && \
            uname -m && \
-           mvn clean install'
+           mvn clean install && \
+           ls platforms/thorntail/api'
     - name: Prepare
       id: prepare
       run: |
             TAG=${GITHUB_REF##*/}
-            echo ::set-output name=tag_name::${TAG}    
+            echo ::set-output name=tag_name::${TAG}
+    - name: checking
+      run: ls platforms/thorntail/api
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     #- name: Login do docker.io
