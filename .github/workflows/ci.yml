@@ -41,7 +41,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
           context: .
-          file: ./platforms/thorntail/api/Dockerfile
+          working-directory: ./platforms/thorntail/api
+          file: ./Dockerfile
           platforms: linux/arm64
           push: true
           tags: |
