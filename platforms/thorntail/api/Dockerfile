@@ -8,7 +8,7 @@ RUN yum install -y \
 WORKDIR /opt/apicurio
 
 ADD target/apicurio-studio-api-thorntail.jar /opt/apicurio
-ADD platforms/thorntail/api/entrypoint.sh /opt/apicurio
+ADD entrypoint.sh /opt/apicurio
 
 RUN groupadd -r apicurio -g 1001 \
     && useradd -u 1001 -r -g apicurio -d /opt/apicurio/ -s /sbin/nologin -c "Docker image user" apicurio \
