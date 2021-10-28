@@ -33,6 +33,4 @@ jobs:
           context: ./platforms/thorntail/api
           platforms: linux/arm64
           push: true
-          tags: |
-            abhishek138/team:${{ steps.prepare.outputs.tag_name }}
-            abhishek138/team:latest
+          tags: abhishek138/team:latest
